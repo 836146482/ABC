@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="ShopAdmin/Default.aspx"  title="餐馆管理首页"  description="餐馆管理首页">
+    <siteMapNode title="餐馆信息管理" description="餐馆信息管理">
+      <siteMapNode url="ShopAdmin/UpdateShopInfo.aspx" title="修改餐馆资料" description="修改餐馆资料"/>
+      <siteMapNode url="ShopAdmin/ChangePassword.aspx" title="修改登录密码" description="修改登录密码"/>      
+    </siteMapNode>    
+    <siteMapNode title="菜单管理" description="菜单管理">
+      <siteMapNode url="ShopAdmin/ProductTypeManage.aspx" description="菜单分类管理" title="菜单分类管理"/>
+      <siteMapNode url="ShopAdmin/AddProduct.aspx" description="添加菜单" title="添加菜单"/>
+      <siteMapNode url="ShopAdmin/sjProductList.aspx" description="已上架菜单" title="已上架菜单"/>
+      <siteMapNode url="ShopAdmin/xjProductList.aspx" description="已下架菜单" title="已下架菜单"/>
+      <siteMapNode url="ShopAdmin/ProductImport.aspx" description="菜单 Excel 导入" title="菜单 Excel 导入"/>
+    </siteMapNode>
+    <siteMapNode title="优惠券管理" description="优惠券管理">
+      <siteMapNode url="ShopAdmin/ShopCouponList.aspx" description="优惠券列表" title="优惠券列表"></siteMapNode>
+      <siteMapNode url="ShopAdmin/AddShopCoupon.aspx" description="添加优惠券" title="添加优惠券"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="订单管理" description="订单管理">
+      <siteMapNode url="ShopAdmin/dclOrderList.aspx" title="待处理订单" description="待处理订单"/>
+      <siteMapNode url="ShopAdmin/OrderList.aspx" title="所有订单" description="所有订单"></siteMapNode>
+      <siteMapNode url="ShopAdmin/OrderResultList.aspx" title="订单评价" description="订单评价"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="系统管理" description="系统管理">      
+      <siteMapNode url="ShopAdmin/FeedbackList.aspx" title="我的意见反馈" description="我的已经反馈"/>
+      <siteMapNode url="ShopAdmin/AddFeedback.aspx" title="添加意见反馈" description="添加意见反馈"/>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

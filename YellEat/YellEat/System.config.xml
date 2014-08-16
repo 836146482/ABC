@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SysConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EmailHost>smtp.exmail.qq.com</EmailHost>
+  <EmailAccount>yelleat</EmailAccount>
+  <EmailPassword>veIOcRcl1tgU07Ki3lpzaw==</EmailPassword>
+  <Email>yelleat@huagemsoft.com</Email>
+</SysConfig>

@@ -1,0 +1,944 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YellEatModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Ye_Admin2AdminPower">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="AdminPowerID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="AdminPowerID" Type="int" Nullable="false" />
+          <Property Name="IsAdminAuthorized" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Administrator">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginTime" Type="datetime" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_AdminLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminID" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_AdminPower">
+          <Key>
+            <PropertyRef Name="AdminPowerID" />
+          </Key>
+          <Property Name="AdminPowerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PowerName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="OrderSN" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OrderDesc" Type="nvarchar" MaxLength="200" />
+          <Property Name="OrderCreateTime" Type="datetime" Nullable="false" />
+          <Property Name="OrderCheckTime" Type="datetime" />
+          <Property Name="OrderPayTime" Type="datetime" />
+          <Property Name="UnitCouponCost" Type="money" />
+          <Property Name="ShopCouponID" Type="int" />
+          <Property Name="TotalPrice" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="OrderStatus" Type="int" Nullable="false" />
+          <Property Name="Receiver" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ReceiverMobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReceiveAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IsUserDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsShopDeleted" Type="bit" Nullable="false" />
+          <Property Name="Tax" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="IsReminded" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="UnitCost" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_OrderResult">
+          <Key>
+            <PropertyRef Name="OrderResultID" />
+          </Key>
+          <Property Name="OrderResultID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="EvaluationContent" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EatingStar" Type="tinyint" Nullable="false" />
+          <Property Name="DeliveryStar" Type="tinyint" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsUserDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsShopDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductTypeID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="ProductNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductDesc" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="IsUpShelf" Type="bit" Nullable="false" />
+          <Property Name="RecommendLevel" Type="int" Nullable="false" />
+          <Property Name="Clicks" Type="int" Nullable="false" />
+          <Property Name="ProductImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="money" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_ProductType">
+          <Key>
+            <PropertyRef Name="ProductTypeID" />
+          </Key>
+          <Property Name="ProductTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Shop">
+          <Key>
+            <PropertyRef Name="ShopID" />
+          </Key>
+          <Property Name="ShopID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShopAccount" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ShopPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegisterTime" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginTime" Type="datetime" Nullable="false" />
+          <Property Name="ShopName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShopAddress" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ShopZip" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShopMobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShopEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShopQQ" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShopFax" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Longitude" Type="decimal" Precision="18" Scale="10" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="18" Scale="10" Nullable="false" />
+          <Property Name="ShopMainImg" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ShopLogoImg" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ShopQRCodeImg" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ShopDesc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Clicks" Type="int" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="DeliveryTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeliveryMinPrice" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="RecommendLevel" Type="int" Nullable="false" />
+          <Property Name="IsChecked" Type="bit" Nullable="false" />
+          <Property Name="OpeningBeginMinute" Type="int" Nullable="false" />
+          <Property Name="OpeningEndMinute" Type="int" Nullable="false" />
+          <Property Name="OpeningBeginMinute2" Type="int" />
+          <Property Name="OpeningEndMinute2" Type="int" />
+        </EntityType>
+        <EntityType Name="Ye_Shop2ShopType">
+          <Key>
+            <PropertyRef Name="ShopID" />
+            <PropertyRef Name="ShopTypeID" />
+          </Key>
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="ShopTypeID" Type="int" Nullable="false" />
+          <Property Name="IsShopTypeChecked" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_ShopCoupon">
+          <Key>
+            <PropertyRef Name="CouponID" />
+          </Key>
+          <Property Name="CouponID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="CouponCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BeginDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="CouponContent" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitCost" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="IsShopDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_ShopFeedback">
+          <Key>
+            <PropertyRef Name="ShopFeedbackID" />
+          </Key>
+          <Property Name="ShopFeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShopId" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="FeedbackContent" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsHandled" Type="bit" Nullable="false" />
+          <Property Name="HandleAnswer" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="HandledTime" Type="datetime" Nullable="false" />
+          <Property Name="IsShopDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsAdminDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_ShopType">
+          <Key>
+            <PropertyRef Name="ShopTypeId" />
+          </Key>
+          <Property Name="ShopTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShopTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Unit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitPoint" Type="decimal" Precision="18" Scale="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="WxID" Type="varchar" MaxLength="20" />
+          <Property Name="FaceBookID" Type="varchar" MaxLength="20" />
+          <Property Name="QQ" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="RegisterTime" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zip" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="AptSuite" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_UserAddress">
+          <Key>
+            <PropertyRef Name="UserAddressID" />
+          </Key>
+          <Property Name="UserAddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zip" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="AptSuite" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Receiver" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_UserCollection">
+          <Key>
+            <PropertyRef Name="UserCollectionID" />
+          </Key>
+          <Property Name="UserCollectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" Nullable="false" />
+          <Property Name="IsCollecting" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_UserCoupon">
+          <Key>
+            <PropertyRef Name="UserCouponId" />
+          </Key>
+          <Property Name="UserCouponId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CouponId" Type="int" Nullable="false" />
+          <Property Name="ShopId" Type="int" Nullable="false" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+          <Property Name="IsUserDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_UserFeedback">
+          <Key>
+            <PropertyRef Name="UserFeedbackID" />
+          </Key>
+          <Property Name="UserFeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FeedbackContent" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsAdminDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ye_OrderDetail_Ye_Order">
+          <End Role="Ye_Order" Type="Self.Ye_Order" Multiplicity="1" />
+          <End Role="Ye_OrderDetail" Type="Self.Ye_OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ye_Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Ye_OrderDetail">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YellEatModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_Admin2AdminPower" EntityType="Self.Ye_Admin2AdminPower" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_Administrator" EntityType="Self.Ye_Administrator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_AdminLog" EntityType="Self.Ye_AdminLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_AdminPower" EntityType="Self.Ye_AdminPower" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_Order" EntityType="Self.Ye_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_OrderDetail" EntityType="Self.Ye_OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_OrderResult" EntityType="Self.Ye_OrderResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_Product" EntityType="Self.Ye_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_ProductType" EntityType="Self.Ye_ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_Shop" EntityType="Self.Ye_Shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_Shop2ShopType" EntityType="Self.Ye_Shop2ShopType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_ShopCoupon" EntityType="Self.Ye_ShopCoupon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_ShopFeedback" EntityType="Self.Ye_ShopFeedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_ShopType" EntityType="Self.Ye_ShopType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_Unit" EntityType="Self.Ye_Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_User" EntityType="Self.Ye_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_UserAddress" EntityType="Self.Ye_UserAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_UserCollection" EntityType="Self.Ye_UserCollection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_UserCoupon" EntityType="Self.Ye_UserCoupon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ye_UserFeedback" EntityType="Self.Ye_UserFeedback" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ye_OrderDetail_Ye_Order" Association="Self.FK_Ye_OrderDetail_Ye_Order">
+            <End Role="Ye_Order" EntitySet="Ye_Order" />
+            <End Role="Ye_OrderDetail" EntitySet="Ye_OrderDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YellEatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Ye_Admin2AdminPower">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="AdminPowerID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="AdminPowerID" Type="Int32" Nullable="false" />
+          <Property Name="IsAdminAuthorized" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Administrator">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_AdminLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Ye_AdminPower">
+          <Key>
+            <PropertyRef Name="AdminPowerID" />
+          </Key>
+          <Property Name="AdminPowerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PowerName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ShopID" Type="Int32" Nullable="false" />
+          <Property Name="OrderSN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OrderDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OrderCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OrderCheckTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderPayTime" Type="DateTime" Precision="3" />
+          <Property Name="UnitCouponCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ShopCouponID" Type="Int32" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="OrderStatus" Type="Int32" Nullable="false" />
+          <Property Name="Receiver" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReceiverMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReceiveAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsUserDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsShopDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Tax" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="IsReminded" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ye_OrderDetail" Relationship="Self.FK_Ye_OrderDetail_Ye_Order" FromRole="Ye_Order" ToRole="Ye_OrderDetail" />
+        </EntityType>
+        <EntityType Name="Ye_OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="UnitCost" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Ye_Order" Relationship="Self.FK_Ye_OrderDetail_Ye_Order" FromRole="Ye_OrderDetail" ToRole="Ye_Order" />
+        </EntityType>
+        <EntityType Name="Ye_OrderResult">
+          <Key>
+            <PropertyRef Name="OrderResultID" />
+          </Key>
+          <Property Name="OrderResultID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ShopID" Type="Int32" Nullable="false" />
+          <Property Name="EvaluationContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EatingStar" Type="Byte" Nullable="false" />
+          <Property Name="DeliveryStar" Type="Byte" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsUserDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsShopDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ShopID" Type="Int32" Nullable="false" />
+          <Property Name="ProductNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsUpShelf" Type="Boolean" Nullable="false" />
+          <Property Name="RecommendLevel" Type="Int32" Nullable="false" />
+          <Property Name="Clicks" Type="Int32" Nullable="false" />
+          <Property Name="ProductImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UnitId" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_ProductType">
+          <Key>
+            <PropertyRef Name="ProductTypeID" />
+          </Key>
+          <Property Name="ProductTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
+          <Property Name="ShopID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Shop">
+          <Key>
+            <PropertyRef Name="ShopID" />
+          </Key>
+          <Property Name="ShopID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopAccount" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegisterTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShopName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopZip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopQQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopFax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Longitude" Type="Decimal" Precision="18" Scale="10" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Precision="18" Scale="10" Nullable="false" />
+          <Property Name="ShopMainImg" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopLogoImg" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopQRCodeImg" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShopDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Clicks" Type="Int32" Nullable="false" />
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeliveryMinPrice" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="RecommendLevel" Type="Int32" Nullable="false" />
+          <Property Name="IsChecked" Type="Boolean" Nullable="false" />
+          <Property Name="OpeningBeginMinute" Type="Int32" Nullable="false" />
+          <Property Name="OpeningEndMinute" Type="Int32" Nullable="false" />
+          <Property Name="OpeningBeginMinute2" Type="Int32" />
+          <Property Name="OpeningEndMinute2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Ye_Shop2ShopType">
+          <Key>
+            <PropertyRef Name="ShopID" />
+            <PropertyRef Name="ShopTypeID" />
+          </Key>
+          <Property Name="ShopID" Type="Int32" Nullable="false" />
+          <Property Name="ShopTypeID" Type="Int32" Nullable="false" />
+          <Property Name="IsShopTypeChecked" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_ShopCoupon">
+          <Key>
+            <PropertyRef Name="CouponID" />
+          </Key>
+          <Property Name="CouponID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopID" Type="Int32" Nullable="false" />
+          <Property Name="CouponCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CouponContent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UnitCost" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="IsShopDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_ShopFeedback">
+          <Key>
+            <PropertyRef Name="ShopFeedbackID" />
+          </Key>
+          <Property Name="ShopFeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopId" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FeedbackContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsHandled" Type="Boolean" Nullable="false" />
+          <Property Name="HandleAnswer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HandledTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsShopDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsAdminDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_ShopType">
+          <Key>
+            <PropertyRef Name="ShopTypeId" />
+          </Key>
+          <Property Name="ShopTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_Unit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UnitPoint" Type="Decimal" Precision="18" Scale="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WxID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FaceBookID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="QQ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="RegisterTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AptSuite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_UserAddress">
+          <Key>
+            <PropertyRef Name="UserAddressID" />
+          </Key>
+          <Property Name="UserAddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AptSuite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Receiver" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_UserCollection">
+          <Key>
+            <PropertyRef Name="UserCollectionID" />
+          </Key>
+          <Property Name="UserCollectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ShopID" Type="Int32" Nullable="false" />
+          <Property Name="IsCollecting" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_UserCoupon">
+          <Key>
+            <PropertyRef Name="UserCouponId" />
+          </Key>
+          <Property Name="UserCouponId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CouponId" Type="Int32" Nullable="false" />
+          <Property Name="ShopId" Type="Int32" Nullable="false" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+          <Property Name="IsUserDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ye_UserFeedback">
+          <Key>
+            <PropertyRef Name="UserFeedbackID" />
+          </Key>
+          <Property Name="UserFeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FeedbackContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsAdminDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ye_OrderDetail_Ye_Order">
+          <End Role="Ye_Order" Type="Self.Ye_Order" Multiplicity="1" />
+          <End Role="Ye_OrderDetail" Type="Self.Ye_OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ye_Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Ye_OrderDetail">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YellEatEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Ye_Admin2AdminPower" EntityType="Self.Ye_Admin2AdminPower" />
+          <EntitySet Name="Ye_Administrator" EntityType="Self.Ye_Administrator" />
+          <EntitySet Name="Ye_AdminLog" EntityType="Self.Ye_AdminLog" />
+          <EntitySet Name="Ye_AdminPower" EntityType="Self.Ye_AdminPower" />
+          <EntitySet Name="Ye_Order" EntityType="Self.Ye_Order" />
+          <EntitySet Name="Ye_OrderDetail" EntityType="Self.Ye_OrderDetail" />
+          <EntitySet Name="Ye_OrderResult" EntityType="Self.Ye_OrderResult" />
+          <EntitySet Name="Ye_Product" EntityType="Self.Ye_Product" />
+          <EntitySet Name="Ye_ProductType" EntityType="Self.Ye_ProductType" />
+          <EntitySet Name="Ye_Shop" EntityType="Self.Ye_Shop" />
+          <EntitySet Name="Ye_Shop2ShopType" EntityType="Self.Ye_Shop2ShopType" />
+          <EntitySet Name="Ye_ShopCoupon" EntityType="Self.Ye_ShopCoupon" />
+          <EntitySet Name="Ye_ShopFeedback" EntityType="Self.Ye_ShopFeedback" />
+          <EntitySet Name="Ye_ShopType" EntityType="Self.Ye_ShopType" />
+          <EntitySet Name="Ye_Unit" EntityType="Self.Ye_Unit" />
+          <EntitySet Name="Ye_User" EntityType="Self.Ye_User" />
+          <EntitySet Name="Ye_UserAddress" EntityType="Self.Ye_UserAddress" />
+          <EntitySet Name="Ye_UserCollection" EntityType="Self.Ye_UserCollection" />
+          <EntitySet Name="Ye_UserCoupon" EntityType="Self.Ye_UserCoupon" />
+          <EntitySet Name="Ye_UserFeedback" EntityType="Self.Ye_UserFeedback" />
+          <AssociationSet Name="FK_Ye_OrderDetail_Ye_Order" Association="Self.FK_Ye_OrderDetail_Ye_Order">
+            <End Role="Ye_Order" EntitySet="Ye_Order" />
+            <End Role="Ye_OrderDetail" EntitySet="Ye_OrderDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YellEatModelStoreContainer" CdmEntityContainer="YellEatEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YellEatModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_Admin2AdminPower">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_Admin2AdminPower">
+              <MappingFragment StoreEntitySet="Ye_Admin2AdminPower">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="AdminPowerID" ColumnName="AdminPowerID" />
+                <ScalarProperty Name="IsAdminAuthorized" ColumnName="IsAdminAuthorized" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_Administrator">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_Administrator">
+              <MappingFragment StoreEntitySet="Ye_Administrator">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_AdminLog">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_AdminLog">
+              <MappingFragment StoreEntitySet="Ye_AdminLog">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="LogTypeName" ColumnName="LogTypeName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_AdminPower">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_AdminPower">
+              <MappingFragment StoreEntitySet="Ye_AdminPower">
+                <ScalarProperty Name="AdminPowerID" ColumnName="AdminPowerID" />
+                <ScalarProperty Name="PowerName" ColumnName="PowerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_Order">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_Order">
+              <MappingFragment StoreEntitySet="Ye_Order">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="OrderSN" ColumnName="OrderSN" />
+                <ScalarProperty Name="OrderDesc" ColumnName="OrderDesc" />
+                <ScalarProperty Name="OrderCreateTime" ColumnName="OrderCreateTime" />
+                <ScalarProperty Name="OrderCheckTime" ColumnName="OrderCheckTime" />
+                <ScalarProperty Name="OrderPayTime" ColumnName="OrderPayTime" />
+                <ScalarProperty Name="UnitCouponCost" ColumnName="UnitCouponCost" />
+                <ScalarProperty Name="ShopCouponID" ColumnName="ShopCouponID" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="ReceiverMobile" ColumnName="ReceiverMobile" />
+                <ScalarProperty Name="ReceiveAddress" ColumnName="ReceiveAddress" />
+                <ScalarProperty Name="IsUserDeleted" ColumnName="IsUserDeleted" />
+                <ScalarProperty Name="IsShopDeleted" ColumnName="IsShopDeleted" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="IsReminded" ColumnName="IsReminded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_OrderDetail">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_OrderDetail">
+              <MappingFragment StoreEntitySet="Ye_OrderDetail">
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_OrderResult">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_OrderResult">
+              <MappingFragment StoreEntitySet="Ye_OrderResult">
+                <ScalarProperty Name="OrderResultID" ColumnName="OrderResultID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="EvaluationContent" ColumnName="EvaluationContent" />
+                <ScalarProperty Name="EatingStar" ColumnName="EatingStar" />
+                <ScalarProperty Name="DeliveryStar" ColumnName="DeliveryStar" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsUserDeleted" ColumnName="IsUserDeleted" />
+                <ScalarProperty Name="IsShopDeleted" ColumnName="IsShopDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_Product">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_Product">
+              <MappingFragment StoreEntitySet="Ye_Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsUpShelf" ColumnName="IsUpShelf" />
+                <ScalarProperty Name="RecommendLevel" ColumnName="RecommendLevel" />
+                <ScalarProperty Name="Clicks" ColumnName="Clicks" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_ProductType">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_ProductType">
+              <MappingFragment StoreEntitySet="Ye_ProductType">
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="ProductTypeName" ColumnName="ProductTypeName" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_Shop">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_Shop">
+              <MappingFragment StoreEntitySet="Ye_Shop">
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="ShopAccount" ColumnName="ShopAccount" />
+                <ScalarProperty Name="ShopPassword" ColumnName="ShopPassword" />
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+                <ScalarProperty Name="ShopAddress" ColumnName="ShopAddress" />
+                <ScalarProperty Name="ShopZip" ColumnName="ShopZip" />
+                <ScalarProperty Name="ShopMobile" ColumnName="ShopMobile" />
+                <ScalarProperty Name="ShopEmail" ColumnName="ShopEmail" />
+                <ScalarProperty Name="ShopQQ" ColumnName="ShopQQ" />
+                <ScalarProperty Name="ShopFax" ColumnName="ShopFax" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="ShopMainImg" ColumnName="ShopMainImg" />
+                <ScalarProperty Name="ShopLogoImg" ColumnName="ShopLogoImg" />
+                <ScalarProperty Name="ShopQRCodeImg" ColumnName="ShopQRCodeImg" />
+                <ScalarProperty Name="ShopDesc" ColumnName="ShopDesc" />
+                <ScalarProperty Name="Clicks" ColumnName="Clicks" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+                <ScalarProperty Name="DeliveryMinPrice" ColumnName="DeliveryMinPrice" />
+                <ScalarProperty Name="RecommendLevel" ColumnName="RecommendLevel" />
+                <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+                <ScalarProperty Name="OpeningBeginMinute" ColumnName="OpeningBeginMinute" />
+                <ScalarProperty Name="OpeningEndMinute" ColumnName="OpeningEndMinute" />
+                <ScalarProperty Name="OpeningBeginMinute2" ColumnName="OpeningBeginMinute2" />
+                <ScalarProperty Name="OpeningEndMinute2" ColumnName="OpeningEndMinute2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_Shop2ShopType">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_Shop2ShopType">
+              <MappingFragment StoreEntitySet="Ye_Shop2ShopType">
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="ShopTypeID" ColumnName="ShopTypeID" />
+                <ScalarProperty Name="IsShopTypeChecked" ColumnName="IsShopTypeChecked" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_ShopCoupon">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_ShopCoupon">
+              <MappingFragment StoreEntitySet="Ye_ShopCoupon">
+                <ScalarProperty Name="CouponID" ColumnName="CouponID" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="CouponCode" ColumnName="CouponCode" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CouponContent" ColumnName="CouponContent" />
+                <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+                <ScalarProperty Name="IsShopDeleted" ColumnName="IsShopDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_ShopFeedback">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_ShopFeedback">
+              <MappingFragment StoreEntitySet="Ye_ShopFeedback">
+                <ScalarProperty Name="ShopFeedbackID" ColumnName="ShopFeedbackID" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="FeedbackContent" ColumnName="FeedbackContent" />
+                <ScalarProperty Name="IsHandled" ColumnName="IsHandled" />
+                <ScalarProperty Name="HandleAnswer" ColumnName="HandleAnswer" />
+                <ScalarProperty Name="HandledTime" ColumnName="HandledTime" />
+                <ScalarProperty Name="IsShopDeleted" ColumnName="IsShopDeleted" />
+                <ScalarProperty Name="IsAdminDeleted" ColumnName="IsAdminDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_ShopType">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_ShopType">
+              <MappingFragment StoreEntitySet="Ye_ShopType">
+                <ScalarProperty Name="ShopTypeId" ColumnName="ShopTypeId" />
+                <ScalarProperty Name="ShopTypeName" ColumnName="ShopTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_Unit">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_Unit">
+              <MappingFragment StoreEntitySet="Ye_Unit">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="UnitPoint" ColumnName="UnitPoint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_User">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_User">
+              <MappingFragment StoreEntitySet="Ye_User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="WxID" ColumnName="WxID" />
+                <ScalarProperty Name="FaceBookID" ColumnName="FaceBookID" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="AptSuite" ColumnName="AptSuite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_UserAddress">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_UserAddress">
+              <MappingFragment StoreEntitySet="Ye_UserAddress">
+                <ScalarProperty Name="UserAddressID" ColumnName="UserAddressID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="AptSuite" ColumnName="AptSuite" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_UserCollection">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_UserCollection">
+              <MappingFragment StoreEntitySet="Ye_UserCollection">
+                <ScalarProperty Name="UserCollectionID" ColumnName="UserCollectionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="IsCollecting" ColumnName="IsCollecting" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_UserCoupon">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_UserCoupon">
+              <MappingFragment StoreEntitySet="Ye_UserCoupon">
+                <ScalarProperty Name="UserCouponId" ColumnName="UserCouponId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CouponId" ColumnName="CouponId" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="IsUserDeleted" ColumnName="IsUserDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ye_UserFeedback">
+            <EntityTypeMapping TypeName="YellEatModel.Ye_UserFeedback">
+              <MappingFragment StoreEntitySet="Ye_UserFeedback">
+                <ScalarProperty Name="UserFeedbackID" ColumnName="UserFeedbackID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FeedbackContent" ColumnName="FeedbackContent" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsAdminDeleted" ColumnName="IsAdminDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

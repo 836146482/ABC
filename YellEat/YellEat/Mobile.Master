@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Mobile.master.cs" Inherits="YellEat.Mobile" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>YellEat</title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/jquery.cookie.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="page-main" data-role="page">
+            <div class="top2">
+                <div class="top_l">
+                    <a class="lb" onclick="javascript:history.back();location.reload()"></a>
+                </div>
+                YellEat
+                <div class="en">
+                    <a>
+                        <img src="images/english.jpg" /></a>
+                </div>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="nav" style="z-index: 9999999">
+                <ul>
+                    <li class="w40"><a href="UserShopCart.aspx">
+                        <img id="imgCar" src="images/icon1.png" />
+                        购物车<span id="cartNum"></span></a></li>
+                    <li class="w20"><a href="Home.aspx">
+                        <img src="images/icon2.png" /></a></li>
+                    <li class="w40" id="submenu"><a href="javascript:;">
+                        <img src="images/icon3.png" />我的账户</a>
+                        <dl>
+                            <dd><a href="Contact.aspx">联系我们</a></dd>
+                            <dd><a href="UserOrders.aspx">历史订单</a></dd>
+                            <dd><a href="UserCollection.aspx">我的收藏</a></dd>
+                            <dd><a href="UserCenter.aspx">用户中心</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+        <script type="text/javascript">
+            $(function () {
+                ShowAmount();//设置购物车数量
+                $(document).click(function (e) {
+                    if ($(e.target).is('#submenu a')) {
+                        $('#submenu dl').show();
+                    } else {
+                        $('#submenu dl').hide();
+                    }
+                });
+            });
+            function ShowAmount()
+            {
+                var AllAmount = $.cookie('allAmount');
+                $('#cartNum').text('(' + AllAmount + ')');
+            }
+    </script>
+</body>
+</html>

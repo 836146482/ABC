@@ -1,0 +1,32 @@
+﻿html,body{ margin: 0 auto;padding: 0;overflow-y: hidden;}/*width: 1024px;*/
+*{ font-size: 12px;}
+.input-table {width: 100%;display: table;border-collapse: separate;border-spacing: 0px;}
+.input-table thead{ font-weight: normal;}
+.input-table tr{ height: 45px;}
+.input-table thead tr th{padding: 8px 0px;font-weight: bold;text-align: right;position: relative;padding-left: 10px;padding-bottom: 10px;border-bottom: 1px solid #ececec;}
+.input-table tr th {padding: 8px 0px;text-align: right;padding-bottom: 10px;border: 0;}
+.table thead tr th span,.table thead tr th label{ text-align: center;margin: 0 auto;}
+table thead tr th,table tbody tr td{ text-align: center;}/* 正常居中对齐 */
+table thead tr td,table tbody tr th{ text-align: left;} /* 反转左对齐 */
+table thead tr td{vertical-align: bottom;border-bottom: 2px solid #ddd;font-weight: bold}
+table thead tr th:first-child,table tbody tr td:first-child{ text-align: left;padding-left: 3px;}/* 首元素正常居左 */
+table thead tr td:first-child,table tbody tr th:first-child{text-align: center}/* 首元素元素反转居中 */
+table thead tr td:last-child,table tbody tr td:last-child{ text-align: center;}/*  最后一个元素 反转居中 */
+table thead tr th:last-child,table tbody tr td:last-child{ text-align: right;padding-right: 3px;}/* 最后一个正常居中 */
+.input-table tr th:first-child{ text-align: right;}
+.input-table tr td:last-child{ text-align: left;}
+@media (min-width: 800px) {
+    .mycollapse {
+        display: block !important;
+    }    
+     #adminTitle{ display: none !important;}
+    .main-right-sm{float: left; width: 80% !important; left: 15px; position: relative;}
+    #main-right-content{ width: 90% !important; }
+    #nav-right{margin-right:30px;float: right;width:200px;border:#ff0000 1px solid;border-radius:4px;margin-top:10px;color: white;display:block !important}
+    #nav-left{ display: block !important;margin-left:50px;margin-top: 10px;float: left;}
+}
+.main-right{float: left; width: 100%; left: 15px; position: relative;}
+
+@media(min-width:800px) {
+    #adminTitle{ display: inline !important;font-size: 40px;}
+}

@@ -1,0 +1,14 @@
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+F:\chen\YellEat270714full\YellEat\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+F:\chen\YellEat270714full\YellEat\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+F:\chen\YellEat270714full\YellEat\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+F:\chen\YellEat270714full\YellEat\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+F:\chen\YellEat270714full\YellEat\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

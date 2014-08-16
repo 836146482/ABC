@@ -1,0 +1,29 @@
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\obj\Debug\WinClient.csprojResolveAssemblyReference.cache
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\obj\Debug\WinClient.LoginForm.resources
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\obj\Debug\WinClient.OrderNotifyForm.resources
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\obj\Debug\WinClient.Properties.Resources.resources
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\obj\Debug\WinClient.csproj.GenerateResource.Cache
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\bin\Debug\WinClient.exe
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\bin\Debug\WinClient.pdb
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\obj\Debug\WinClient.exe
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\obj\Debug\WinClient.pdb
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\WinClient\bin\Debug\WinClient.exe.config
+F:\chen\YellEat270714full\YellEat\WinClient\bin\Debug\WinClient.exe.config
+F:\chen\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.exe
+F:\chen\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.pdb
+F:\chen\YellEat270714full\YellEat\WinClient\bin\Debug\WinClient.exe
+F:\chen\YellEat270714full\YellEat\WinClient\bin\Debug\WinClient.pdb
+F:\chen\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.csprojResolveAssemblyReference.cache
+F:\chen\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.LoginForm.resources
+F:\chen\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.OrderNotifyForm.resources
+F:\chen\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.Properties.Resources.resources
+F:\chen\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.csproj.GenerateResource.Cache
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\bin\Debug\WinClient.exe.config
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\bin\Debug\WinClient.exe
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\bin\Debug\WinClient.pdb
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.LoginForm.resources
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.OrderNotifyForm.resources
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.Properties.Resources.resources
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.csproj.GenerateResource.Cache
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.exe
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\WinClient\obj\Debug\WinClient.pdb

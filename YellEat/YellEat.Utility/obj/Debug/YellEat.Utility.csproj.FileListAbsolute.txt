@@ -1,0 +1,13 @@
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\bin\Debug\YellEat.Utility.dll
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\bin\Debug\YellEat.Utility.pdb
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\obj\Debug\YellEat.Utility.dll
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\obj\Debug\YellEat.Utility.pdb
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\obj\Debug\YellEat.Utility.csprojResolveAssemblyReference.cache
+F:\chen\YellEat270714full\YellEat\YellEat.Utility\bin\Debug\YellEat.Utility.dll
+F:\chen\YellEat270714full\YellEat\YellEat.Utility\bin\Debug\YellEat.Utility.pdb
+F:\chen\YellEat270714full\YellEat\YellEat.Utility\obj\Debug\YellEat.Utility.dll
+F:\chen\YellEat270714full\YellEat\YellEat.Utility\obj\Debug\YellEat.Utility.pdb
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\YellEat.Utility\bin\Debug\YellEat.Utility.dll
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\YellEat.Utility\bin\Debug\YellEat.Utility.pdb
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\YellEat.Utility\obj\Debug\YellEat.Utility.dll
+C:\Users\XiaoMa1\Documents\Visual Studio 2013\Projects\YellEat270714full\YellEat\YellEat.Utility\obj\Debug\YellEat.Utility.pdb

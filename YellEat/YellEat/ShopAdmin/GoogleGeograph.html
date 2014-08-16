@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="../js/jquery-1.10.1.min.js"></script>
+    <title></title>
+    <style>
+        html,body{ margin: 0;padding: 0;}
+    </style>
+    <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
+    <script type="text/javascript">
+        
+        var timer;
+        function init() {
+            if (navigator.geolocation) {
+                //获取当前地理位置
+                var msg;
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var coords = position.coords;
+                    $("#jw").text(" 经度：" + coords.longitude + " 纬度：" + coords.latitude);
+                }, function (error) {
+                    //处理错误
+                    switch (error.code) {
+                        case 1:
+                            msg = "位置服务被拒绝。";
+                            break;
+                        case 2:
+                            msg = "暂时获取不到位置信息。";
+                            break;
+                        case 3:
+                            msg = "获取信息超时。";
+                            break;
+                        default:
+                            msg = "未知错误。";
+                            break;
+                    }
+                    $("#jw").text(msg);                   
+                });
+            } else {
+                $("#jw").text('浏览器不支持HTML5来获取地理位置信息');
+                
+            }
+        }
+
+        function get() {
+            if ($("#jw").text().indexOf("经度")>-1) {
+                clearInterval(timer);
+                $("#geo", window.parent.document).show();
+            }
+            if ($("#jw").text() != "") {
+                $("#jw", window.parent.document).hide();
+                $("#geo", window.parent.document).show();
+            }            
+            init();
+        }
+
+        $(function () {
+            try {
+                timer = setInterval("get();", 1000);
+            } catch(e) {
+
+            }             
+        });
+    </script>
+</head>
+<body>
+    <p id="jw" style="font-size: 12px;font-weight: bold"></p>
+</body>
+</html>

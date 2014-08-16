@@ -1,0 +1,14 @@
+﻿html,body{ margin: 0;padding: 0;background: url(/images/admin_login_bg.gif) repeat-x;}
+table.login-panel {border:1px solid #fdf5e6;margin-left: 180px; border-collapse: collapse;border-radius: 4px;box-shadow: 0 0 3px 3px #fdf5e6;-webkit-box-shadow:0 0 3px 3px #fdf5e6;-moz-box-shadow:0 0 3px 3px #fdf5e6;}
+table.login-panel td {padding: 0;height: 40px;}
+table th{font-size: 11pt;font-weight: bold;text-align: right;width: 80px;color: white;}
+.title{color:whitesmoke;font-weight: bold;text-indent:20px;-moz-text-shadow: 0 1px 1px 10px #000;text-shadow: 0 1px 1px 10px #000;-webkit-text-shadow: 0 1px 1px 10px #000;}
+.login-btn {width: 170px; height: 30px;border-color: #357ebd; background-color: #428bca;border-radius: 4px;color: #fff;font-weight: bold;cursor: pointer;}
+.login-btn:hover{ background-color: #00008b;}
+.input{ height: 25px; width: 200px; font-size: 12pt;border: 1px solid #0197BC;border-radius: 4px; }
+.checkAuthCode{ height:25px; width:85px; font-size:12pt;border: 1px solid #0197BC;border-radius: 4px;}
+.login-top{margin:0 auto;background: url(/images/admin_login_top.jpg);width: 800px;height: 670px;padding-top: 130px;opacity: 0.9;-webkit-box-shadow:0 5px 13px 5px #00008b;-moz-box-shadow:0 5px 13px 5px #00008b;box-shadow: 0 5px 13px 5px #00008b;}
+.login-bottom{ background: url(/images/admin_login_bottom.png) repeat-x;height: 105px;width: 100%;position: fixed;bottom: -3px;opacity:0.9}
+.copyright{ font-size: 16px;margin:0 auto;text-align: center;color: white;margin-top: 46px;font-family: "arial";}
+
+

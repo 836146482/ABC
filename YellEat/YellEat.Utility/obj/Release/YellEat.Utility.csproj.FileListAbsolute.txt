@@ -1,0 +1,5 @@
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\bin\Release\YellEat.Utility.dll
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\bin\Release\YellEat.Utility.pdb
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\obj\Release\YellEat.Utility.csprojResolveAssemblyReference.cache
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\obj\Release\YellEat.Utility.dll
+I:\Users\嘉庆\Documents\Visual Studio 2013\Projects\YellEat\YellEat.Utility\obj\Release\YellEat.Utility.pdb

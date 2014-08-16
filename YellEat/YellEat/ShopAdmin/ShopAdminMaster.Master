@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ShopAdminMaster.master.cs" Inherits="YellEat.ShopAdmin.ShopAdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的餐馆</title>
+    <script src="../js/jquery-1.10.1.min.js"></script>
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/admin.css" rel="stylesheet" />
+    <script src="../js/yelleat.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="header" style="background: #A10B0D; height: 105px;">
+            <div style="width: 100px;">
+                <div style="margin-left: -150px; position: absolute; left: 50%; float: left; top: 10px; border-radius: 5px;">
+                    <p style="width: 299px; height: 83px; overflow: hidden">
+                        <img src="../images/logo.png" style="margin-left: 1px; top: -1px; width: 300px; height: 85px; border: none; position: relative; border-width: 0" /></p>
+                </div>
+            </div>
+            <div id="nav-left" style="display: none;">
+                <h1 style="font-weight: bolder; color: #ffefd5;"><i id="logo" class="fa fa-coffee" style="color: #bdb76b; font-size: 40px;"></i>&nbsp;<span style="display: none;" id="adminTitle">我的餐馆</span></h1>
+            </div>
+
+            <div id="nav-right" style="display: none; text-indent: 5px;">
+                <p style="padding-top: 3px;">操作用户：<asp:Literal runat="server" ID="ltlCurrentShop"></asp:Literal></p>
+                <p>当前时间：<span id="time"></span></p>
+                <p style="text-align: center">
+                    <asp:Button runat="server" ID="btnLoginOut" OnClick="btnLoginOut_OnClick" CssClass="btn btn-xs btn-danger" Text="注销" />
+                    &nbsp;&nbsp;<a href="javascript:window.opener=null;window.open('','_self');window.close();" class="btn btn-xs btn-danger" style="text-indent: 0px">退出</a>
+                </p>
+            </div>
+        </div>
+        <div id="main">
+            <div id="main-left" style="float: left; width: 20%" class="collapse mycollapse">
+                <div style="margin-left: 20px;">
+                    <asp:TreeView runat="server" ID="tvmap" DataSourceID="sitemap" Style="margin: 0px auto 0px auto;"
+                        ExpandDepth="2">
+                        <ParentNodeStyle Font-Bold="True" Font-Size="14px" ForeColor="#336699" />
+                        <RootNodeStyle Font-Bold="True" Font-Size="14px" />
+                    </asp:TreeView>
+                </div>
+                <asp:SiteMapDataSource ID="sitemap" runat="server" SiteMapProvider="ShopAdmin" />
+            </div>
+
+            <div id="main-right" class="main-right main-right-sm">
+                <br />
+                <div>
+                    当前位置:
+                    <asp:SiteMapPath ID="smp1" runat="server" RenderCurrentNodeAsLink="True">
+                    </asp:SiteMapPath>
+                    <asp:Literal runat="server" ID="ltlSiteMapPath"></asp:Literal>
+                </div>
+                <br />
+                <div style="overflow-y: scroll; height: 500px;">
+
+                    <div style="width: 100%;" id="main-right-content">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div style="height: 140px;">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </form>   
+</body>
+</html>

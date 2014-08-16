@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode description="YellEat 后台管理系统" title="YellEat 后台管理系统">
+    <siteMapNode siteMapFile="YellEatAdmin.sitemap"></siteMapNode>
+    <siteMapNode siteMapFile="ShopAdmin.sitemap"></siteMapNode>
+  </siteMapNode>  
+</siteMap>

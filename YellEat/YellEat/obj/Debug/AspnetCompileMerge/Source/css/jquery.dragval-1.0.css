@@ -1,0 +1,88 @@
+
+	body div.Dragval {
+	    float: left;
+		width: 206px;
+		position:relative;
+	}		
+			
+	/* jQuery Dragval CSS goes here */
+	.Dragval {
+	    float: left;
+		width: 216px;
+	}
+	
+	.Container {
+	    float: left;
+		width: 216px;
+		height: 50px;
+	}
+	
+	.Track {
+	    float: left;
+		width: 206px;
+		height: 26px;
+		background: url('../images/dragval_bg.png') no-repeat 20px bottom;
+		position: absolute;
+		cursor: pointer;
+	}
+	
+	.Track .LeftBtn{
+	    float: left;
+		width: 21px;
+		height: 26px;
+		cursor: pointer;
+	}
+	
+	.Track .RightBtn{
+	    float: left;
+		width: 21px;
+		height: 26px;
+		cursor: pointer;
+	}
+	
+	.Track .Labels {
+	    float: left;
+		height: 26px;
+	}
+	
+	.Track .Label{
+	    float: left;
+		width: 52px;
+		height: 26px;
+		cursor: pointer;
+	}
+
+	.Track .LabelFirst {
+	    float: left;
+		width: 29px;
+		height: 26px;
+	}
+	
+	.Track .LabelLast {
+	    float: left;
+		width: 29px;
+		height: 26px;
+	}
+	
+	.Measure {
+		
+		position: relative;
+		top: 31px;
+	}
+	
+	.Measure .Value {
+	    float: left;
+		width: 43px;
+		text-align: center;
+		font-size: 10px;
+	}
+
+	.Indicator {
+	    position: absolute;
+		width: 20px;
+		height: 26px;
+		background: url('../images/dragval_indicator.png') no-repeat;
+        left: 11px;
+		top: 0;
+		cursor: pointer;
+	}
